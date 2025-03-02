@@ -1,6 +1,15 @@
 {
     keymaps = [
         {
+            mode = [ "n" ];
+            key = "<Space>";
+            action = "<Nop>";
+            options = {
+                noremap = true;
+                silent = true;
+            };
+        }
+        {
             mode = [ "n" "i" ];
             key = "<Insert>";
             action = "<Nop>";

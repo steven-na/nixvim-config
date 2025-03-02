@@ -8,6 +8,7 @@
     ./plugins/fidget.nix
     ./plugins/leap.nix
     ./plugins/snacks.nix
+    ./plugins/whichkey.nix
 
     ./theme.nix
     ./settings.nix

@@ -7,6 +7,7 @@
     ./plugins/lsp.nix
     ./plugins/fidget.nix
 
+    ./theme.nix
     ./settings.nix
     ./binds.nix
   ];

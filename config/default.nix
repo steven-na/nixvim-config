@@ -1,23 +1,26 @@
 {
-  imports = [
-    ./plugins/bufferline.nix
-    ./plugins/lualine.nix
-    ./plugins/whichkey.nix
-    ./plugins/fidget.nix
-    ./plugins/gitsigns.nix
+    imports = [
+        ./plugins/bufferline.nix
+        ./plugins/lualine.nix
+        ./plugins/whichkey.nix
+        ./plugins/fidget.nix
+        ./plugins/gitsigns.nix
+        ./plugins/neotree.nix
 
-    ./plugins/lsp.nix
-    ./plugins/treesitter.nix
-    ./plugins/completions.nix
-    ./plugins/autopairs.nix
+        ./plugins/lsp.nix
+        ./plugins/treesitter.nix
+        ./plugins/completions.nix
+        ./plugins/conform.nix
+        ./plugins/autopairs.nix
+        ./plugins/rendermarkdown.nix
 
-    ./plugins/leap.nix
-    ./plugins/telescope.nix
+        ./plugins/leap.nix
+        ./plugins/telescope.nix
 
-    ./plugins/snacks.nix
+        ./plugins/snacks.nix
 
-    ./theme.nix
-    ./settings.nix
-    ./binds.nix
-  ];
+        ./theme.nix
+        ./settings.nix
+        ./binds.nix
+    ];
 }

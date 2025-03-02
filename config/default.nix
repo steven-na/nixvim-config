@@ -7,6 +7,7 @@
     ./plugins/lsp.nix
     ./plugins/fidget.nix
     ./plugins/leap.nix
+    ./plugins/snacks.nix
 
     ./theme.nix
     ./settings.nix

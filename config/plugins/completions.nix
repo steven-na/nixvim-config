@@ -2,38 +2,37 @@
 {
     plugins.cmp = {
         enable = true;
-        luaConfig.pre = 
-            ''
-            local compare = require("cmp.config.compare")
-			local icons = {
-				Text = "󰉿",
-				Method = "󰆧",
-				Function = "󰊕",
-				Constructor = "",
-				Field = "󰜢",
-				Variable = "󰀫",
-				Class = "󰠱",
-				Interface = "",
-				Module = "",
-				Property = "󰜢",
-				Unit = "󰑭",
-				Value = "󰎠",
-				Enum = "",
-				Keyword = "󰌋",
-				Snippet = "",
-				Color = "󰏘",
-				File = "󰈙",
-				Reference = "󰈇",
-				Folder = "󰉋",
-				EnumMember = "",
-				Constant = "󰏿",
-				Struct = "󰙅",
-				Event = "",
-				Operator = "󰆕",
-				TypeParameter = "",
-			}
+        luaConfig.pre = ''
+                        local compare = require("cmp.config.compare")
+            			local icons = {
+            				Text = "󰉿",
+            				Method = "󰆧",
+            				Function = "󰊕",
+            				Constructor = "",
+            				Field = "󰜢",
+            				Variable = "󰀫",
+            				Class = "󰠱",
+            				Interface = "",
+            				Module = "",
+            				Property = "󰜢",
+            				Unit = "󰑭",
+            				Value = "󰎠",
+            				Enum = "",
+            				Keyword = "󰌋",
+            				Snippet = "",
+            				Color = "󰏘",
+            				File = "󰈙",
+            				Reference = "󰈇",
+            				Folder = "󰉋",
+            				EnumMember = "",
+            				Constant = "󰏿",
+            				Struct = "󰙅",
+            				Event = "",
+            				Operator = "󰆕",
+            				TypeParameter = "",
+            			}
 
-			vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#C792EA", italic = true })
+            			vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#C792EA", italic = true })
         '';
         settings = {
             autoEnableSources = true;
@@ -42,11 +41,10 @@
             };
             snippet = {
                 expand = {
-                    __raw = 
-                    ''
-                    function(args)
-						require("luasnip").lsp_expand(args.body)
-					end
+                    __raw = ''
+                                            function(args)
+                        						require("luasnip").lsp_expand(args.body)
+                        					end
                     '';
                 };
             };
@@ -81,15 +79,14 @@
                     __raw = "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })";
                 };
                 "<C-y>" = {
-                    __raw = 
-                    ''
-                    cmp.mapping(
-						cmp.mapping.confirm({
-							behavior = cmp.ConfirmBehavior.Insert,
-							select = true,
-						}),
-						{ "i", "c" }
-					)
+                    __raw = ''
+                                            cmp.mapping(
+                        						cmp.mapping.confirm({
+                        							behavior = cmp.ConfirmBehavior.Insert,
+                        							select = true,
+                        						}),
+                        						{ "i", "c" }
+                        					)
                     '';
                 };
             };
@@ -105,14 +102,13 @@
             # };
             window = {
                 completion = {
-                    __raw = 
-                    ''
-                    cmp.config.window.bordered({
-						border = "double",
-						winhighlight = "Normal:Normal,FloatBorder:Normal,Search:NONE",
-						side_padding = 0,
-						col_offset = -2,
-					})
+                    __raw = ''
+                                            cmp.config.window.bordered({
+                        						border = "double",
+                        						winhighlight = "Normal:Normal,FloatBorder:Normal,Search:NONE",
+                        						side_padding = 0,
+                        						col_offset = -2,
+                        					})
                     '';
                 };
                 documentation = {
@@ -120,16 +116,19 @@
                 };
             };
             formatting = {
-                fields = [ "kind" "abbr" "menu" ];
+                fields = [
+                    "kind"
+                    "abbr"
+                    "menu"
+                ];
                 format = {
-                    __raw = 
-                    ''
-                    function(_, vim_item)
-						local kind = vim_item.kind
-						vim_item.kind = icons[kind] or ""
-						vim_item.menu = " (" .. (kind or "Unknown") .. ") "
-						return vim_item
-					end
+                    __raw = ''
+                                            function(_, vim_item)
+                        						local kind = vim_item.kind
+                        						vim_item.kind = icons[kind] or ""
+                        						vim_item.menu = " (" .. (kind or "Unknown") .. ") "
+                        						return vim_item
+                        					end
                     '';
                 };
             };
@@ -139,33 +138,33 @@
     plugins.luasnip = {
         enable = true;
         fromVscode = [
-            {}
+            { }
         ];
         settings = {
             enable_autosnippets = true;
         };
 
-        luaConfig.post = 
-        ''
-            local ls = require("luasnip")
-			vim.keymap.set({ "i", "s" }, "<c-k>", function()
-				if ls.expand_or_jumpable() then
-					ls.expand_or_jump()
-				end
-			end, { silent = true })
-			vim.keymap.set({ "i", "s" }, "<c-j>", function()
-				if ls.jumpable(-1) then
-					ls.jump(-1)
-				end
-			end, { silent = true })
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        luaConfig.post = ''
+                        local ls = require("luasnip")
+            			vim.keymap.set({ "i", "s" }, "<c-k>", function()
+            				if ls.expand_or_jumpable() then
+            					ls.expand_or_jump()
+            				end
+            			end, { silent = true })
+            			vim.keymap.set({ "i", "s" }, "<c-j>", function()
+            				if ls.jumpable(-1) then
+            					ls.jump(-1)
+            				end
+            			end, { silent = true })
+                        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         '';
     };
 
     extraPlugins = builtins.attrValues {
-      inherit (pkgs.vimPlugins)
-        friendly-snippets; # Snippets for luasnip
+        inherit (pkgs.vimPlugins)
+            friendly-snippets
+            ; # Snippets for luasnip
     };
 
     plugins.schemastore = {

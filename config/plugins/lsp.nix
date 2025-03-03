@@ -1,8 +1,6 @@
 { pkgs, lib, ... }:
 {
     plugins = {
-        lsp-lines.enable = true;
-        lsp-format.enable = true;
         lsp = {
             enable = true;
             inlayHints = true;
@@ -25,21 +23,21 @@
                 eslint.enable = true;
                 nil_ls.enable = true;
                 nixd = {
-                  enable = true;
-                  settings =
-                    let
-                      flake = ''(builtins.getFlake "github:steven-na/nixosConfig)""'';
-                    in
-                    {
-                      nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
-                      formatting = {
-                        command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
-                      };
-                      options = {
-                        nixos.expr = ''${flake}.nixosConfigurations.main.options'';
-                        home-manager.expr = ''${flake}.homeConfigurations.blakec@main.options'';
-                      };
-                    };
+                    enable = true;
+                    settings =
+                        let
+                            flake = ''(builtins.getFlake "github:steven-na/nixosConfig)""'';
+                        in
+                        {
+                            nixpkgs.expr = "import ${flake}.inputs.nixpkgs { }";
+                            formatting = {
+                                command = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+                            };
+                            options = {
+                                nixos.expr = ''${flake}.nixosConfigurations.main.options'';
+                                home-manager.expr = ''${flake}.homeConfigurations.blakec@main.options'';
+                            };
+                        };
                 };
                 yamlls = {
                     enable = true;
@@ -55,8 +53,10 @@
                                     "http://json.schemastore.org/ansible-playbook" = "*play*.{yml,yaml}";
                                     "http://json.schemastore.org/chart" = "Chart.{yml,yaml}";
                                     "https://json.schemastore.org/dependabot-v2" = ".github/dependabot.{yml,yaml}";
-                                    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" = "*docker-compose*.{yml,yaml}";
-                                    "https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json" = "*flow*.{yml,yaml}";
+                                    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" =
+                                        "*docker-compose*.{yml,yaml}";
+                                    "https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json" =
+                                        "*flow*.{yml,yaml}";
                                 };
                             };
                         };
@@ -109,26 +109,26 @@
         };
     };
     extraConfigLua = ''
-    local _border = "rounded"
+        local _border = "rounded"
 
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-      vim.lsp.handlers.hover, {
-        border = _border
-      }
-    )
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+          vim.lsp.handlers.hover, {
+            border = _border
+          }
+        )
 
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-      vim.lsp.handlers.signature_help, {
-        border = _border
-      }
-    )
+        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+          vim.lsp.handlers.signature_help, {
+            border = _border
+          }
+        )
 
-    vim.diagnostic.config{
-      float={border=_border}
-    };
+        vim.diagnostic.config{
+          float={border=_border}
+        };
 
-    require('lspconfig.ui.windows').default_options = {
-      border = _border
-    }
-  '';
+        require('lspconfig.ui.windows').default_options = {
+          border = _border
+        }
+    '';
 }

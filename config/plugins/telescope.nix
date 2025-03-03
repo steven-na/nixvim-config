@@ -9,25 +9,25 @@
             "<leader>tp" = {
                 action = "find_files";
                 options = {
-                  desc = "Find files fuzzily";
+                    desc = "Find files fuzzily";
                 };
             };
             "<leader>tg" = {
                 action = "live_grep";
                 options = {
-                  desc = "Live grep";
+                    desc = "Live grep";
                 };
             };
             "<leader>ts" = {
                 action = "grep_string";
                 options = {
-                  desc = "Live grep over string";
+                    desc = "Live grep over string";
                 };
             };
             "<leader>tb" = {
                 action = "current_buffer_fuzzy_find";
                 options = {
-                   desc = "Live grep over buffer";
+                    desc = "Live grep over buffer";
                 };
             };
             "<leader>tl" = {

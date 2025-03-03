@@ -2,28 +2,28 @@
     plugins.lualine = {
         enable = true;
 
-        luaConfig.pre = #lua
-        ''
-            function isNormal()
-                return vim.tbl_contains({ "n", "niI", "niR", "niV", "nt", "ntT" }, vim.api.nvim_get_mode().mode)
-            end
-            
-            function isInsert()
-                return vim.tbl_contains({ "i", "ic", "ix" }, vim.api.nvim_get_mode().mode)
-            end
-            
-            function isVisual()
-                return vim.tbl_contains({ "v", "vs", "V", "Vs", "\22", "\22s", "s", "S", "\19" }, vim.api.nvim_get_mode().mode)
-            end
-            
-            function isCommand()
-                return vim.tbl_contains({ "c", "cv", "ce", "rm", "r?" }, vim.api.nvim_get_mode().mode)
-            end
-            
-            function isReplace()
-                return vim.tbl_contains({ "R", "Rc", "Rx", "Rv", "Rvc", "Rvx", "r" }, vim.api.nvim_get_mode().mode)
-            end
-        '';
+        luaConfig.pre = # lua
+            ''
+                function isNormal()
+                    return vim.tbl_contains({ "n", "niI", "niR", "niV", "nt", "ntT" }, vim.api.nvim_get_mode().mode)
+                end
+
+                function isInsert()
+                    return vim.tbl_contains({ "i", "ic", "ix" }, vim.api.nvim_get_mode().mode)
+                end
+
+                function isVisual()
+                    return vim.tbl_contains({ "v", "vs", "V", "Vs", "\22", "\22s", "s", "S", "\19" }, vim.api.nvim_get_mode().mode)
+                end
+
+                function isCommand()
+                    return vim.tbl_contains({ "c", "cv", "ce", "rm", "r?" }, vim.api.nvim_get_mode().mode)
+                end
+
+                function isReplace()
+                    return vim.tbl_contains({ "R", "Rc", "Rx", "Rv", "Rvc", "Rvx", "r" }, vim.api.nvim_get_mode().mode)
+                end
+            '';
 
         settings = {
             options = {
@@ -58,18 +58,18 @@
                         __unkeyed-1 = "mode";
                         icon_enable = true;
                         fmt = {
-                            __raw = #lua
-                            ''
-                    function()
-                        return isNormal() and ""
-                            or isInsert() and ""
-                            or isVisual() and "󰒉"
-                            or isCommand() and ""
-                            or isReplace() and ""
-                            or vim.api.nvim_get_mode().mode == "t" and ""
-                            or ""
-                    end
-                            '';
+                            __raw = # lua
+                                ''
+                                    function()
+                                        return isNormal() and ""
+                                            or isInsert() and ""
+                                            or isVisual() and "󰒉"
+                                            or isCommand() and ""
+                                            or isReplace() and ""
+                                            or vim.api.nvim_get_mode().mode == "t" and ""
+                                            or ""
+                                    end
+                                '';
                         };
                     }
                     "mode"
@@ -104,22 +104,22 @@
                     {
                         __unkeyed-1 = "progress";
                         color = {
-                            __raw = #lua
-                            ''
-                        function()
-                            return {
-                                fg = vim.fn.synIDattr(
-                                    vim.fn.synIDtrans(
-                                        vim.fn.hlID(
-                                            "progressHl"
-                                            .. (math.floor(((vim.fn.line(".") / vim.fn.line("$")) / 0.17))) + 1
-                                        )
-                                    ),
-                                    "fg"
-                                ),
-                            }
-                        end
-                            '';
+                            __raw = # lua
+                                ''
+                                    function()
+                                        return {
+                                            fg = vim.fn.synIDattr(
+                                                vim.fn.synIDtrans(
+                                                    vim.fn.hlID(
+                                                        "progressHl"
+                                                        .. (math.floor(((vim.fn.line(".") / vim.fn.line("$")) / 0.17))) + 1
+                                                    )
+                                                ),
+                                                "fg"
+                                            ),
+                                        }
+                                    end
+                                '';
                         };
                     }
                 ];

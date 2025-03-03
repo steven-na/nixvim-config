@@ -40,8 +40,8 @@
                     nvim = nixvim'.makeNixvimWithModule nixvimModule;
                 in
                 {
+                    formatter.x86_64-linux = nixpkgs.nixfmt-rfc-style;
                     checks = {
-                        # Run `nix flake check .` to verify that your config is not broken
                         default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
                     };
                     packages = {

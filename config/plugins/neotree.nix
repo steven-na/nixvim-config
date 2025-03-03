@@ -33,9 +33,9 @@
         window.width = 30;
         eventHandlers = {
             "file_open_requested" = ''
-            function()
-                require("neo-tree.command").execute({ action = "close" })
-            end'';
+                function()
+                    require("neo-tree.command").execute({ action = "close" })
+                end'';
         };
     };
     keymaps = [

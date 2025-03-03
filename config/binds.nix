@@ -10,7 +10,10 @@
             };
         }
         {
-            mode = [ "n" "i" ];
+            mode = [
+                "n"
+                "i"
+            ];
             key = "<Insert>";
             action = "<Nop>";
             options = {

@@ -36,6 +36,7 @@
           bang = true,
         })
       '';
+
     plugins.conform-nvim = {
       enable = true;
       settings = {
@@ -73,61 +74,21 @@
           end
         '';
         notify_on_error = true;
+        formatters.nixfmt.prepend_args = [ "--indent=4" ];
         formatters_by_ft = {
-          html = [
-            [
-              "prettierd"
-              "prettier"
-            ]
-          ];
-          css = [
-            [
-              "prettierd"
-              "prettier"
-            ]
-          ];
-          javascript = [
-            [
-              "prettierd"
-              "prettier"
-            ]
-          ];
-          typescript = [
-            [
-              "prettierd"
-              "prettier"
-            ]
-          ];
-          python = [
-            "black"
-            "isort"
-          ];
+          html = [ "prettierd" "prettier" ];
+          css = [ "prettierd" "prettier" ];
+          javascript = [ "prettierd" "prettier" ];
+          typescript = [ "prettierd" "prettier" ];
+          python = [ "black" "isort" ];
           lua = [ "stylua" ];
           nix = [ "nixfmt" ];
-          markdown = [
-            [
-              "prettierd"
-              "prettier"
-            ]
-          ];
-          yaml = [
-            [
-              "prettierd"
-              "prettier"
-            ]
-          ];
+          markdown = [ "prettierd" "prettier" ];
+          yaml = [ "prettierd" "prettier" ];
           terraform = [ "terraform_fmt" ];
           bicep = [ "bicep" ];
-          bash = [
-            "shellcheck"
-            "shellharden"
-            "shfmt"
-          ];
-          sh = [
-            "shellcheck"
-            "shellharden"
-            "shfmt"
-          ];
+          bash = [ "shellcheck" "shellharden" "shfmt" ];
+          sh = [ "shellcheck" "shellharden" "shfmt" ];
           json = [ "jq" ];
           "_" = [ "trim_whitespace" ];
         };

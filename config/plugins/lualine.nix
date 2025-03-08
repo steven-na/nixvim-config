@@ -4,6 +4,10 @@
 
         luaConfig.pre = # lua
             ''
+                vim.api.nvim_command([[
+                    highlight LualineDim guifg=#AAAAAA guibg=#3B4252 gui=italic
+                ]])
+
                 function isNormal()
                     return vim.tbl_contains({ "n", "niI", "niR", "niV", "nt", "ntT" }, vim.api.nvim_get_mode().mode)
                 end
@@ -30,8 +34,8 @@
                 icons_enabled = true;
                 theme = "nord";
                 component_separators = {
-                    left = "\\";
-                    right = "/";
+                    left = "";
+                    right = "";
                 };
                 section_separators = {
                     left = "";
@@ -98,7 +102,22 @@
                             align = "right";
                         };
                     }
-                    "filename"
+                    {
+                        __unkeyed-1 = {
+                            __raw = # lua
+                                ''
+                                    function()
+                                      local full_path = vim.fn.fnamemodify(vim.fn.expand('%'), ':~:.')
+                                      local dir = vim.fn.fnamemodify(full_path, ':h') .. '/'
+                                      local file = vim.fn.fnamemodify(full_path, ':t')
+                                      return '%#LualineDim#' .. dir .. '%#lualine_c_normal#' .. file
+                                    end
+                                '';
+                        };
+                        color = {
+                            __raw = ''{}'';
+                        };
+                    }
                 ];
                 lualine_y = [
                     {

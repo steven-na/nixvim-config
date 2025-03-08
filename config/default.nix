@@ -13,6 +13,7 @@
         ./plugins/conform.nix
         ./plugins/autopairs.nix
         ./plugins/rendermarkdown.nix
+        ./plugins/rust.nix
 
         ./plugins/leap.nix
         ./plugins/telescope.nix

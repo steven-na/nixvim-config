@@ -59,5 +59,11 @@
         type = {
             fg = "#8fbcbb";
         };
+        "LspInlayHint" = {
+            fg = "#d8dee9";
+        };
+        "CmpGhostText" = {
+            fg = "#d8dee9";
+        };
     };
 }

@@ -19,6 +19,7 @@
         ./plugins/telescope.nix
 
         ./plugins/snacks.nix
+        ./plugins/vim-tmux-navigator.nix
 
         ./theme.nix
         ./settings.nix

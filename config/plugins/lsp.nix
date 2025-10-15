@@ -11,7 +11,6 @@
                 marksman.enable = true;
                 pyright.enable = true;
                 gopls.enable = true;
-                ansiblels.enable = true;
                 jsonls.enable = true;
                 dartls.enable = false;
                 cssls.enable = true;

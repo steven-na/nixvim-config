@@ -14,6 +14,7 @@
         ./plugins/autopairs.nix
         ./plugins/rendermarkdown.nix
         ./plugins/rust.nix
+        ./plugins/ufo.nix
 
         ./plugins/leap.nix
         ./plugins/telescope.nix
